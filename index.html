@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IRON VAULT | Forge Your Legacy - Premium Fitness & Performance Studio</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            neon: '#CCFF00',
+            'neon-dark': '#A3CC00',
+            'neon-orange': '#FF5722',
+            'dark-bg': '#0B0C10',
+            'dark-card': '#12141C',
+            'dark-border': '#1F2330',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          boxShadow: {
+            'neon-glow': '0 0 25px rgba(204, 255, 0, 0.4)',
+            'orange-glow': '0 0 25px rgba(255, 87, 34, 0.4)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome Icons & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #0B0C10;
+      color: #F3F4F6;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .glass-panel {
+      background: rgba(18, 20, 28, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-nav {
+      background: rgba(11, 12, 16, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0B0C10;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1F2330;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #CCFF00;
+    }
+
+    .gradient-text-neon {
+      background: linear-gradient(135deg, #CCFF00 0%, #A3FF00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gradient-text-orange {
+      background: linear-gradient(135deg, #FF5722 0%, #FF9800 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    input[type=range] {
+      -webkit-appearance: none;
+      background: #1F2330;
+      border-radius: 999px;
+      height: 8px;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 22px;
+      width: 22px;
+      border-radius: 50%;
+      background: #CCFF00;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(204, 255, 0, 0.8);
+      transition: all 0.2s ease;
+    }
+    input[type=range]::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-neon selection:text-black">
+
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-white/10 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-neon/10 border border-neon/30 flex items-center justify-center text-neon group-hover:bg-neon group-hover:text-black transition-all duration-300 shadow-neon-glow">
+            <i class="fa-solid fa-dumbbell text-xl"></i>
+          </div>
+          <span class="text-2xl font-black tracking-wider text-white">IRON<span class="text-neon">VAULT</span></span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center space-x-8 text-sm font-semibold tracking-wide text-gray-300">
+          <a href="#programs" class="hover:text-neon transition-colors">Programs</a>
+          <a href="#schedule" class="hover:text-neon transition-colors">Schedule</a>
+          <a href="#calculator" class="hover:text-neon transition-colors">BMI Diagnostic</a>
+          <a href="#trainers" class="hover:text-neon transition-colors">Trainers</a>
+          <a href="#pricing" class="hover:text-neon transition-colors">Membership</a>
+          <a href="#transformations" class="hover:text-neon transition-colors">Results</a>
+          <a href="#gallery" class="hover:text-neon transition-colors">Tour</a>
+        </nav>
+
+        <!-- CTA Action -->
+        <div class="hidden lg:flex items-center space-x-4">
+          <button onclick="openModal('bookingModal')" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-bold rounded-xl group bg-neon text-black shadow-neon-glow hover:scale-105 transition-all duration-300">
+            <span class="px-5 py-2.5 rounded-[10px] bg-neon text-black font-extrabold flex items-center gap-2">
+              <i class="fa-solid fa-bolt"></i> Book Free Trial
+            </span>
+          </button>
+        </div>
+
+        <!-- Mobile Drawer Button -->
+        <div class="lg:hidden flex items-center">
+          <button id="mobileMenuBtn" class="text-gray-300 hover:text-neon focus:outline-none p-2">
+            <i class="fa-solid fa-bars text-2xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden border-b border-dark-border bg-dark-bg/95 px-4 pt-2 pb-6 space-y-3">
+      <a href="#programs" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-neon hover:bg-white/5">Programs</a>
+      <a href="#schedule" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-neon hover:bg-white/5">Schedule</a>
+      <a href="#calculator" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-neon hover:bg-white/5">BMI Calculator</a>
+      <a href="#trainers" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-neon hover:bg-white/5">Trainers</a>
+      <a href="#pricing" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-neon hover:bg-white/5">Membership</a>
+      <a href="#transformations" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-neon hover:bg-white/5">Results</a>
+      <a href="#gallery" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-neon hover:bg-white/5">Gym Tour</a>
+      <button onclick="openModal('bookingModal'); toggleMobileMenu();" class="w-full mt-4 bg-neon text-black font-extrabold py-3 rounded-xl shadow-neon-glow flex justify-center items-center gap-2">
+        <i class="fa-solid fa-bolt"></i> Book Free Trial
+      </button>
+    </div>
+  </header>
+
+  <main class="pt-20">
+    <section class="relative min-h-[92vh] flex items-center justify-center overflow-hidden py-20 px-4 sm:px-6 lg:px-8">
+      <div class="absolute top-1/4 left-10 w-96 h-96 bg-neon/10 rounded-full filter blur-[140px] pointer-events-none"></div>
+      <div class="absolute bottom-10 right-10 w-96 h-96 bg-neon-orange/10 rounded-full filter blur-[140px] pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+        <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-neon/30 text-neon text-xs sm:text-sm font-semibold tracking-wide uppercase">
+            <span class="w-2.5 h-2.5 rounded-full bg-neon animate-ping"></span>
+            AI-Driven High Performance Studio
+          </div>
+
+          <h1 class="text-4xl sm:text-6xl xl:text-7xl font-black uppercase tracking-tight leading-[1.1]">
+            Forge Your <span class="gradient-text-neon">Legacy</span><br>
+            Break Your <span class="gradient-text-orange">Limits</span>
+          </h1>
+
+          <p class="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-normal">
+            Welcome to IRON VAULT. Experience human optimization with elite biometrics-driven personal training, heavy compound strength zones, and bio-hacking recovery suites.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <button onclick="openModal('bookingModal')" class="w-full sm:w-auto px-8 py-4 bg-neon text-black font-extrabold text-lg rounded-xl shadow-neon-glow hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3">
+              <i class="fa-solid fa-fire"></i> Claim 7-Day Free Pass
+            </button>
+            <button onclick="openModal('videoModal')" class="w-full sm:w-auto px-8 py-4 glass-panel border border-white/20 hover:border-neon/50 text-white font-bold text-lg rounded-xl hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-3">
+              <i class="fa-solid fa-play text-neon"></i> Watch Studio Tour
+            </button>
+          </div>
+
+          <!-- Counter Stats -->
+          <div class="pt-8 border-t border-dark-border grid grid-cols-3 gap-4 text-center lg:text-left">
+            <div>
+              <div class="text-2xl sm:text-4xl font-extrabold text-white" id="statMembers">2,850+</div>
+              <div class="text-xs sm:text-sm text-gray-400 font-medium">Active Athletes</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-4xl font-extrabold text-neon" id="statCoaches">24+</div>
+              <div class="text-xs sm:text-sm text-gray-400 font-medium">Master Coaches</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-4xl font-extrabold text-neon-orange">99.2%</div>
+              <div class="text-xs sm:text-sm text-gray-400 font-medium">Success Rate</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Hero Banner Card -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative rounded-3xl overflow-hidden glass-panel border border-white/10 p-3 shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80" alt="Iron Vault Gym Floor" class="w-full h-[460px] object-cover rounded-2xl filter brightness-90 contrast-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent opacity-80"></div>
+            
+            <div class="absolute bottom-6 left-6 right-6 glass-panel p-4 rounded-2xl border border-white/10 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-neon/20 flex items-center justify-center text-neon font-black text-xl border border-neon/30">
+                  <i class="fa-solid fa-heart-pulse animate-pulse"></i>
+                </div>
+                <div>
+                  <div class="text-sm font-bold text-white">Live Gym Density</div>
+                  <div class="text-xs text-gray-400">Current Occupancy: <span class="text-neon font-semibold">38% (Low Capacity)</span></div>
+                </div>
+              </div>
+              <span class="px-3 py-1 bg-neon/10 border border-neon/30 text-neon text-xs font-bold rounded-full">OPEN NOW</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="programs" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-neon text-sm font-extrabold uppercase tracking-widest mb-2">Targeted Disciplines</h2>
+        <p class="text-3xl sm:text-5xl font-black uppercase text-white">Choose Your Training Protocol</p>
+        <p class="mt-4 text-gray-400">Specialized training regimens engineered for maximum muscular hypertrophy, endurance, and dynamic power.</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="flex flex-wrap justify-center gap-3 mb-10" id="programFilters">
+        <button data-filter="all" class="filter-btn active px-5 py-2.5 rounded-xl text-sm font-bold bg-neon text-black transition-all">All Protocols</button>
+        <button data-filter="strength" class="filter-btn px-5 py-2.5 rounded-xl text-sm font-bold glass-panel text-gray-300 hover:text-neon border border-white/10 transition-all">Strength & Power</button>
+        <button data-filter="hiit" class="filter-btn px-5 py-2.5 rounded-xl text-sm font-bold glass-panel text-gray-300 hover:text-neon border border-white/10 transition-all">HIIT & Burn</button>
+        <button data-filter="functional" class="filter-btn px-5 py-2.5 rounded-xl text-sm font-bold glass-panel text-gray-300 hover:text-neon border border-white/10 transition-all">Functional Turf</button>
+        <button data-filter="mobility" class="filter-btn px-5 py-2.5 rounded-xl text-sm font-bold glass-panel text-gray-300 hover:text-neon border border-white/10 transition-all">Yoga & Recovery</button>
+      </div>
+
+      <!-- Program Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="programCardsContainer">
+        <!-- Card 1 -->
+        <div class="program-card glass-panel rounded-2xl overflow-hidden border border-white/10 hover:border-neon/50 transition-all duration-300 group flex flex-col justify-between" data-category="strength">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=80" alt="Heavy Weightlifting" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <span class="absolute top-4 left-4 px-3 py-1 bg-black/80 text-neon text-xs font-bold rounded-lg border border-neon/30">Extreme Power</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-black text-white group-hover:text-neon transition-colors">Hypertrophy Vault</h3>
+              <p class="text-gray-400 text-xs mt-2">Maximum muscle growth through progressive resistance, barbell metrics, and compound power lifts.</p>
+              <div class="mt-4 flex flex-wrap gap-2 text-xs font-semibold text-gray-300">
+                <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10"><i class="fa-solid fa-clock text-neon mr-1"></i> 60 Min</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10"><i class="fa-solid fa-fire text-neon-orange mr-1"></i> 700 kcal</span>
+              </div>
+            </div>
+            <button onclick="openProgramDetails('Hypertrophy Vault', 'Periodized strength training focused on compound barbells, heavy dumbbells, and hypertrophy principles for muscle hypertrophy.')" class="mt-6 w-full py-2.5 rounded-xl border border-neon/40 text-neon font-bold text-xs hover:bg-neon hover:text-black transition-all">
+              View Protocol Details
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="program-card glass-panel rounded-2xl overflow-hidden border border-white/10 hover:border-neon/50 transition-all duration-300 group flex flex-col justify-between" data-category="hiit">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3?auto=format&fit=crop&w=600&q=80" alt="HIIT Workout" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <span class="absolute top-4 left-4 px-3 py-1 bg-black/80 text-neon-orange text-xs font-bold rounded-lg border border-neon-orange/30">Fat Shred</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-black text-white group-hover:text-neon transition-colors">Metabolic Burn</h3>
+              <p class="text-gray-400 text-xs mt-2">Fast-paced interval sprints, assault bikes, kettlebell circuits, and intense cardio conditioning.</p>
+              <div class="mt-4 flex flex-wrap gap-2 text-xs font-semibold text-gray-300">
+                <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10"><i class="fa-solid fa-clock text-neon mr-1"></i> 45 Min</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10"><i class="fa-solid fa-fire text-neon-orange mr-1"></i> 850 kcal</span>
+              </div>
+            </div>
+            <button onclick="openProgramDetails('Metabolic Burn', 'High-Octane interval workout designed to maximize caloric expenditure for up to 24 hours post-workout using live heart-rate telemetry.')" class="mt-6 w-full py-2.5 rounded-xl border border-neon/40 text-neon font-bold text-xs hover:bg-neon hover:text-black transition-all">
+              View Protocol Details
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="program-card glass-panel rounded-2xl overflow-hidden border border-white/10 hover:border-neon/50 transition-all duration-300 group flex flex-col justify-between" data-category="functional">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=600&q=80" alt="Functional Turf" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <span class="absolute top-4 left-4 px-3 py-1 bg-black/80 text-neon text-xs font-bold rounded-lg border border-neon/30">Athletic Performance</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-black text-white group-hover:text-neon transition-colors">Tactical Athlete</h3>
+              <p class="text-gray-400 text-xs mt-2">Sled pushes, battle ropes, plyometrics, and functional turf mobility built for real-world athletic power.</p>
+              <div class="mt-4 flex flex-wrap gap-2 text-xs font-semibold text-gray-300">
+                <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10"><i class="fa-solid fa-clock text-neon mr-1"></i> 50 Min</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10"><i class="fa-solid fa-fire text-neon-orange mr-1"></i> 600 kcal</span>
+              </div>
+            </div>
+            <button onclick="openProgramDetails('Tactical Athlete', 'Functional conditioning on dynamic turf utilizing sleds, kettlebells, and multi-planar movement patterns.')" class="mt-6 w-full py-2.5 rounded-xl border border-neon/40 text-neon font-bold text-xs hover:bg-neon hover:text-black transition-all">
+              View Protocol Details
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="program-card glass-panel rounded-2xl overflow-hidden border border-white/10 hover:border-neon/50 transition-all duration-300 group flex flex-col justify-between" data-category="mobility">
+          <div class="relative h-52 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80" alt="Yoga Recovery" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+            <span class="absolute top-4 left-4 px-3 py-1 bg-black/80 text-emerald-400 text-xs font-bold rounded-lg border border-emerald-400/30">Active Recovery</span>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-black text-white group-hover:text-neon transition-colors">Fascial Flow & Yoga</h3>
+              <p class="text-gray-400 text-xs mt-2">Deep fascial stretching, joint decompression, core stabilization, and targeted breathwork recovery.</p>
+              <div class="mt-4 flex flex-wrap gap-2 text-xs font-semibold text-gray-300">
+                <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10"><i class="fa-solid fa-clock text-neon mr-1"></i> 60 Min</span>
+                <span class="px-2.5 py-1 rounded-md bg-white/5 border border-white/10"><i class="fa-solid fa-fire text-neon-orange mr-1"></i> 300 kcal</span>
+              </div>
+            </div>
+            <button onclick="openProgramDetails('Fascial Flow & Yoga', 'Enhance joint range of motion, relieve CNS fatigue, and accelerate soft tissue recovery with mobility specialists.')" class="mt-6 w-full py-2.5 rounded-xl border border-neon/40 text-neon font-bold text-xs hover:bg-neon hover:text-black transition-all">
+              View Protocol Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="schedule" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto glass-panel rounded-3xl border border-white/10 my-10">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+        <div>
+          <h2 class="text-neon text-sm font-extrabold uppercase tracking-widest mb-1">Live Timetable</h2>
+          <p class="text-3xl font-black uppercase text-white">Weekly Studio Schedule</p>
+        </div>
+        <!-- Days Switcher -->
+        <div class="flex overflow-x-auto gap-2 mt-4 md:mt-0 pb-2" id="daySelector">
+          <button data-day="mon" class="day-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-neon text-black">Monday</button>
+          <button data-day="tue" class="day-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white/5 hover:bg-white/10 text-gray-300">Tuesday</button>
+          <button data-day="wed" class="day-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white/5 hover:bg-white/10 text-gray-300">Wednesday</button>
+          <button data-day="thu" class="day-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white/5 hover:bg-white/10 text-gray-300">Thursday</button>
+          <button data-day="fri" class="day-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white/5 hover:bg-white/10 text-gray-300">Friday</button>
+          <button data-day="sat" class="day-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white/5 hover:bg-white/10 text-gray-300">Saturday</button>
+          <button data-day="sun" class="day-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white/5 hover:bg-white/10 text-gray-300">Sunday</button>
+        </div>
+      </div>
+
+      <!-- Schedule Slots Container -->
+      <div class="space-y-4" id="scheduleSlotsList">
+        <!-- Javascript dynamic render -->
+      </div>
+    </section>
+
+    <section id="calculator" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Input Sliders -->
+        <div class="lg:col-span-6 space-y-6">
+          <div>
+            <h2 class="text-neon text-sm font-extrabold uppercase tracking-widest mb-2">Biometrics Diagnostics</h2>
+            <p class="text-3xl sm:text-4xl font-black uppercase text-white">Interactive BMI Calculator</p>
+            <p class="text-gray-400 text-sm mt-2">Adjust your height and weight in real-time to compute your Body Mass Index and receive a tailored workout strategy.</p>
+          </div>
+
+          <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-white/10 space-y-6">
+            <!-- Gender Selector -->
+            <div>
+              <label class="block text-xs font-bold uppercase text-gray-400 mb-3">Gender</label>
+              <div class="grid grid-cols-2 gap-4">
+                <button id="btnMale" class="py-3 rounded-xl border border-neon bg-neon/10 text-neon font-bold flex items-center justify-center gap-2">
+                  <i class="fa-solid fa-mars"></i> Male
+                </button>
+                <button id="btnFemale" class="py-3 rounded-xl border border-white/10 bg-white/5 text-gray-400 font-bold flex items-center justify-center gap-2 hover:border-white/30">
+                  <i class="fa-solid fa-venus"></i> Female
+                </button>
+              </div>
+            </div>
+
+            <!-- Height Slider -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label class="text-xs font-bold uppercase text-gray-400">Height</label>
+                <span class="text-lg font-black text-neon"><span id="heightVal">175</span> <span class="text-xs text-gray-400">cm</span></span>
+              </div>
+              <input type="range" id="inputHeight" min="120" max="220" value="175" class="w-full">
+            </div>
+
+            <!-- Weight Slider -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label class="text-xs font-bold uppercase text-gray-400">Weight</label>
+                <span class="text-lg font-black text-neon"><span id="weightVal">75</span> <span class="text-xs text-gray-400">kg</span></span>
+              </div>
+              <input type="range" id="inputWeight" min="40" max="150" value="75" class="w-full">
+            </div>
+
+            <!-- Age Slider -->
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label class="text-xs font-bold uppercase text-gray-400">Age</label>
+                <span class="text-lg font-black text-white"><span id="ageVal">26</span> <span class="text-xs text-gray-400">years</span></span>
+              </div>
+              <input type="range" id="inputAge" min="15" max="80" value="26" class="w-full">
+            </div>
+          </div>
+        </div>
+
+        <!-- Gauge & Recommendation Output -->
+        <div class="lg:col-span-6">
+          <div class="glass-panel p-8 rounded-3xl border border-white/10 text-center space-y-6 relative overflow-hidden">
+            <div class="text-xs font-extrabold uppercase tracking-wider text-gray-400">Your Calculated Score</div>
+            
+            <div class="relative w-48 h-48 mx-auto flex items-center justify-center rounded-full border-4 border-dashed border-neon/40 shadow-neon-glow">
+              <div>
+                <div class="text-5xl font-black text-white" id="bmiScore">24.5</div>
+                <div class="text-xs font-bold text-neon uppercase mt-1" id="bmiStatus">Normal Weight</div>
+              </div>
+            </div>
+
+            <!-- Health Bar Gauge -->
+            <div class="space-y-2">
+              <div class="flex justify-between text-xs text-gray-400 font-semibold px-2">
+                <span>Underweight</span>
+                <span>Normal</span>
+                <span>Overweight</span>
+                <span>Obese</span>
+              </div>
+              <div class="h-3 w-full bg-dark-bg rounded-full overflow-hidden flex p-0.5 border border-white/10">
+                <div class="h-full w-[20%] bg-blue-500 rounded-l-full"></div>
+                <div class="h-full w-[30%] bg-neon"></div>
+                <div class="h-full w-[25%] bg-yellow-500"></div>
+                <div class="h-full w-[25%] bg-neon-orange rounded-r-full"></div>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 text-left">
+              <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-lightbulb text-neon"></i> Personalized Protocol:
+              </h4>
+              <p class="text-xs text-gray-300 mt-1" id="bmiRecommendation">
+                Maintain athletic body composition with 3x Hypertrophy lifting and 2x Metabolic HIIT sessions per week. Prioritize high-protein macros.
+              </p>
+            </div>
+
+            <button onclick="openModal('bookingModal')" class="w-full py-3 bg-neon text-black font-extrabold rounded-xl shadow-neon-glow hover:scale-105 transition-all">
+              Claim Personalized Training Plan
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="trainers" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-neon text-sm font-extrabold uppercase tracking-widest mb-2">Master Coaches</h2>
+        <p class="text-3xl sm:text-5xl font-black uppercase text-white">Elite Coaching Staff</p>
+      </div>
+
+      <!-- Trainers Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        <!-- Trainer 1 -->
+        <div class="glass-panel rounded-2xl overflow-hidden border border-white/10 group">
+          <div class="relative h-80 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?auto=format&fit=crop&w=600&q=80" alt="Trainer Marcus" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4">
+              <h3 class="text-xl font-extrabold text-white">Marcus Vance</h3>
+              <p class="text-xs font-semibold text-neon uppercase">Head Strength & Power Specialist</p>
+            </div>
+          </div>
+          <div class="p-4 border-t border-white/5 flex items-center justify-between text-gray-400 text-sm">
+            <span>10+ Yrs Experience</span>
+            <div class="flex space-x-3 text-white">
+              <a href="#" class="hover:text-neon"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="hover:text-neon"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trainer 2 -->
+        <div class="glass-panel rounded-2xl overflow-hidden border border-white/10 group">
+          <div class="relative h-80 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=600&q=80" alt="Trainer Elena" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4">
+              <h3 class="text-xl font-extrabold text-white">Elena Rostova</h3>
+              <p class="text-xs font-semibold text-neon-orange uppercase">HIIT & Metabolic Conditioning</p>
+            </div>
+          </div>
+          <div class="p-4 border-t border-white/5 flex items-center justify-between text-gray-400 text-sm">
+            <span>7+ Yrs Experience</span>
+            <div class="flex space-x-3 text-white">
+              <a href="#" class="hover:text-neon"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="hover:text-neon"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trainer 3 -->
+        <div class="glass-panel rounded-2xl overflow-hidden border border-white/10 group">
+          <div class="relative h-80 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Trainer Sarah" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4">
+              <h3 class="text-xl font-extrabold text-white">Sarah Jenkins</h3>
+              <p class="text-xs font-semibold text-emerald-400 uppercase">Functional Mobility & Recovery</p>
+            </div>
+          </div>
+          <div class="p-4 border-t border-white/5 flex items-center justify-between text-gray-400 text-sm">
+            <span>8+ Yrs Experience</span>
+            <div class="flex space-x-3 text-white">
+              <a href="#" class="hover:text-neon"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Before & After Comparison Slider -->
+      <div id="transformations" class="glass-panel rounded-3xl p-8 border border-white/10">
+        <div class="text-center mb-8">
+          <span class="text-xs font-bold uppercase text-neon tracking-widest">Real Results</span>
+          <h3 class="text-2xl sm:text-3xl font-black text-white uppercase mt-1">Interactive Transformation Slider</h3>
+        </div>
+
+        <div class="max-w-3xl mx-auto relative rounded-2xl overflow-hidden h-[380px] select-none shadow-2xl" id="transformationContainer">
+          <!-- Before Image -->
+          <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover filter grayscale contrast-125">
+          <span class="absolute top-4 left-4 px-3 py-1 bg-black/80 text-white font-extrabold text-xs rounded-lg border border-white/20">BEFORE (DAY 1)</span>
+
+          <!-- After Overlay Clip -->
+          <div id="afterOverlay" class="absolute inset-0 overflow-hidden w-1/2 border-r-4 border-neon shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover max-w-none" id="afterImage">
+            <span class="absolute top-4 right-4 px-3 py-1 bg-neon text-black font-extrabold text-xs rounded-lg shadow-neon-glow">AFTER (12 WEEKS)</span>
+          </div>
+
+          <input type="range" id="transformSlider" min="0" max="100" value="50" class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize z-20">
+        </div>
+        <p class="text-center text-xs text-gray-400 mt-4"><i class="fa-solid fa-arrows-left-right text-neon mr-1"></i> Drag slider sideways to compare physics</p>
+      </div>
+    </section>
+
+    <section id="pricing" class="py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-neon text-sm font-extrabold uppercase tracking-widest mb-2">Flexible Pass Protocols</h2>
+        <p class="text-3xl sm:text-5xl font-black uppercase text-white">Membership Plans</p>
+
+        <!-- Toggle Switch -->
+        <div class="mt-8 inline-flex items-center gap-4 glass-panel p-2 rounded-2xl border border-white/10">
+          <span id="labelMonthly" class="text-sm font-bold text-white">Monthly Billing</span>
+          <button id="billingToggle" class="w-14 h-8 bg-dark-border rounded-full p-1 relative transition-colors duration-300">
+            <div id="toggleDot" class="w-6 h-6 bg-neon rounded-full transition-transform duration-300 transform translate-x-0"></div>
+          </button>
+          <span id="labelAnnual" class="text-sm font-bold text-gray-400 flex items-center gap-1.5">
+            Annual Pass <span class="px-2 py-0.5 bg-neon/20 text-neon text-xs font-black rounded-full">SAVE 20%</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Pricing Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Tier 1 -->
+        <div class="glass-panel p-8 rounded-3xl border border-white/10 flex flex-col justify-between hover:border-white/30 transition-all">
+          <div>
+            <div class="text-sm font-bold text-gray-400 uppercase">Starter Pass</div>
+            <div class="text-4xl font-black text-white mt-4">$<span class="price-val" data-monthly="49" data-annual="39">49</span> <span class="text-xs text-gray-400 font-normal">/ month</span></div>
+            <p class="text-xs text-gray-400 mt-2">Essential access to heavy weights floor and locker facilities.</p>
+            
+            <ul class="mt-8 space-y-3 text-sm text-gray-300">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neon"></i> Full Gym Floor Access</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neon"></i> Locker Room & Sauna Access</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neon"></i> 1 Free Coach Orientation</li>
+              <li class="flex items-center gap-2 text-gray-500"><i class="fa-solid fa-xmark"></i> Group Fitness Classes</li>
+            </ul>
+          </div>
+          <button onclick="openBookingModalWithPlan('Starter Pass')" class="mt-8 w-full py-3 rounded-xl border border-white/20 text-white font-bold hover:bg-white hover:text-black transition-all">
+            Choose Starter
+          </button>
+        </div>
+
+        <!-- Tier 2 (Featured) -->
+        <div class="glass-panel p-8 rounded-3xl border-2 border-neon relative flex flex-col justify-between shadow-neon-glow transform lg:-translate-y-4 bg-dark-card">
+          <span class="absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-1 bg-neon text-black font-extrabold text-xs rounded-full uppercase">
+            MOST POPULAR PROTOCOL
+          </span>
+          <div>
+            <div class="text-sm font-bold text-neon uppercase">Pro Athlete Pass</div>
+            <div class="text-5xl font-black text-white mt-4">$<span class="price-val" data-monthly="89" data-annual="69">89</span> <span class="text-xs text-gray-400 font-normal">/ month</span></div>
+            <p class="text-xs text-gray-400 mt-2">Unlimited access to all studio classes, turf, and biometric tracking.</p>
+
+            <ul class="mt-8 space-y-3 text-sm text-gray-200">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neon"></i> Everything in Starter Pass</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neon"></i> Unlimited Group Fitness Classes</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neon"></i> Biometric Body Fat Scan</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neon"></i> Free Monthly Guest Pass</li>
+            </ul>
+          </div>
+          <button onclick="openBookingModalWithPlan('Pro Athlete Pass')" class="mt-8 w-full py-4 rounded-xl bg-neon text-black font-extrabold shadow-neon-glow hover:scale-105 transition-all">
+            Join Pro Protocol
+          </button>
+        </div>
+
+        <!-- Tier 3 -->
+        <div class="glass-panel p-8 rounded-3xl border border-white/10 flex flex-col justify-between hover:border-white/30 transition-all">
+          <div>
+            <div class="text-sm font-bold text-neon-orange uppercase">VIP Performance</div>
+            <div class="text-4xl font-black text-white mt-4">$<span class="price-val" data-monthly="149" data-annual="119">149</span> <span class="text-xs text-gray-400 font-normal">/ month</span></div>
+            <p class="text-xs text-gray-400 mt-2">1-on-1 Dedicated Coaching, custom nutrition plans, and Cryo recovery suite.</p>
+
+            <ul class="mt-8 space-y-3 text-sm text-gray-300">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-orange"></i> Unlimited All-Access Protocol</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-orange"></i> 4x Personal Coaching Sessions</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-orange"></i> Tailored Nutrition Guidance</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-neon-orange"></i> Cryo & Infrared Sauna Lounge</li>
+            </ul>
+          </div>
+          <button onclick="openBookingModalWithPlan('VIP Performance')" class="mt-8 w-full py-3 rounded-xl border border-neon-orange/40 text-neon-orange font-bold hover:bg-neon-orange hover:text-black transition-all">
+            Join VIP Protocol
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-neon text-sm font-extrabold uppercase tracking-widest mb-2">Facility Gallery</h2>
+        <p class="text-3xl sm:text-5xl font-black uppercase text-white">Studio Interactive Tour</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="relative h-64 rounded-2xl overflow-hidden glass-panel border border-white/10 group cursor-pointer" onclick="openLightBox('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=1200&q=80')">
+          <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500">
+          <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+            <i class="fa-solid fa-magnifying-glass-plus text-neon text-2xl"></i>
+          </div>
+        </div>
+
+        <div class="relative h-64 rounded-2xl overflow-hidden glass-panel border border-white/10 group cursor-pointer" onclick="openLightBox('https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=1200&q=80')">
+          <img src="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500">
+          <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+            <i class="fa-solid fa-magnifying-glass-plus text-neon text-2xl"></i>
+          </div>
+        </div>
+
+        <div class="relative h-64 rounded-2xl overflow-hidden glass-panel border border-white/10 group cursor-pointer" onclick="openLightBox('https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&w=1200&q=80')">
+          <img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500">
+          <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+            <i class="fa-solid fa-magnifying-glass-plus text-neon text-2xl"></i>
+          </div>
+        </div>
+
+        <div class="relative h-64 rounded-2xl overflow-hidden glass-panel border border-white/10 group cursor-pointer" onclick="openLightBox('https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=1200&q=80')">
+          <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500">
+          <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+            <i class="fa-solid fa-magnifying-glass-plus text-neon text-2xl"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Grid -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <h2 class="text-neon text-sm font-extrabold uppercase tracking-widest mb-2">Member Reviews</h2>
+        <p class="text-3xl sm:text-4xl font-black uppercase text-white">What Athletes Say</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass-panel p-6 rounded-2xl border border-white/10 flex flex-col justify-between">
+          <p class="text-gray-300 text-sm italic">"The biometric diagnostics completely changed my training structure. I hit personal records in squat and deadlift within 8 weeks."</p>
+          <div class="mt-6 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-black">JD</div>
+            <div>
+              <div class="text-sm font-bold text-white">Jason Drake</div>
+              <div class="text-xs text-neon">Pro Protocol Member</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-panel p-6 rounded-2xl border border-white/10 flex flex-col justify-between">
+          <p class="text-gray-300 text-sm italic">"The facility vibe, neon lighting aesthetic, and quality of equipment make this the best gym in the city hands down."</p>
+          <div class="mt-6 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-black">SL</div>
+            <div>
+              <div class="text-sm font-bold text-white">Sophia Lin</div>
+              <div class="text-xs text-neon">VIP Member</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-panel p-6 rounded-2xl border border-white/10 flex flex-col justify-between">
+          <p class="text-gray-300 text-sm italic">"The class schedule booking is seamless and the instructors push you past your limits every single session."</p>
+          <div class="mt-6 flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-black">MR</div>
+            <div>
+              <div class="text-sm font-bold text-white">Michael Reed</div>
+              <div class="text-xs text-neon">Starter Pass Member</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="border-t border-white/10 bg-black py-16 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+        <div class="space-y-4">
+          <a href="#" class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-neon/10 text-neon flex items-center justify-center font-bold">
+              <i class="fa-solid fa-dumbbell"></i>
+            </div>
+            <span class="text-xl font-black text-white">IRON<span class="text-neon">VAULT</span></span>
+          </a>
+          <p class="text-xs text-gray-400">High-performance fitness sanctuary engineered for peak physical output and athletic longevity.</p>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-bold text-white uppercase mb-4">Quick Navigation</h4>
+          <ul class="space-y-2 text-xs text-gray-400 font-medium">
+            <li><a href="#programs" class="hover:text-neon">Training Programs</a></li>
+            <li><a href="#schedule" class="hover:text-neon">Class Timetable</a></li>
+            <li><a href="#calculator" class="hover:text-neon">BMI Diagnostic Tool</a></li>
+            <li><a href="#pricing" class="hover:text-neon">Membership Plans</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-bold text-white uppercase mb-4">Studio Hours</h4>
+          <p class="text-xs text-gray-400">Mon - Fri: 5:00 AM - 11:00 PM</p>
+          <p class="text-xs text-gray-400 mt-1">Sat - Sun: 6:00 AM - 10:00 PM</p>
+          <p class="text-xs text-neon mt-2 font-semibold">24/7 VIP Keycard Access Active</p>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-bold text-white uppercase mb-4">Connect With Us</h4>
+          <div class="flex space-x-4 text-gray-400 text-lg">
+            <a href="#" class="hover:text-neon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="hover:text-neon"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="hover:text-neon"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="hover:text-neon"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto mt-12 pt-6 border-t border-white/5 text-center text-xs text-gray-500">
+        &copy; 2026 IRON VAULT Studio. All Rights Reserved.
+      </div>
+    </footer>
+  </main>
+
+  <div id="bookingModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-white/10 max-w-lg w-full relative">
+      <button onclick="closeModal('bookingModal')" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <h3 class="text-2xl font-black text-white uppercase flex items-center gap-2">
+        <i class="fa-solid fa-bolt text-neon"></i> Claim Trial Pass
+      </h3>
+      <p class="text-xs text-gray-400 mt-1">Fill out your information to reserve your 7-Day All-Access Free Pass.</p>
+
+      <form id="trialForm" class="mt-6 space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Full Name</label>
+          <input type="text" required placeholder="Alex Mercer" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-neon text-sm">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Email Address</label>
+          <input type="email" required placeholder="alex@example.com" class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-neon text-sm">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-300 uppercase mb-1">Select Preferred Protocol</label>
+          <select id="selectedPlanInput" class="w-full px-4 py-3 rounded-xl bg-dark-bg border border-white/10 text-white focus:outline-none focus:border-neon text-sm">
+            <option>Starter Pass ($49/mo)</option>
+            <option selected>Pro Athlete Pass ($89/mo)</option>
+            <option>VIP Performance ($149/mo)</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full py-4 bg-neon text-black font-extrabold rounded-xl shadow-neon-glow hover:scale-[1.02] transition-all">
+          Confirm Free Pass Reservation
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Video Modal -->
+  <div id="videoModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+    <div class="max-w-4xl w-full glass-panel rounded-3xl p-4 border border-white/10 relative">
+      <button onclick="closeModal('videoModal')" class="absolute -top-10 right-0 text-white hover:text-neon text-2xl">
+        <i class="fa-solid fa-xmark"></i> Close
+      </button>
+      <div class="aspect-video w-full rounded-2xl overflow-hidden bg-black flex items-center justify-center relative">
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center p-4">
+          <div class="w-20 h-20 rounded-full bg-neon text-black flex items-center justify-center text-3xl font-bold shadow-neon-glow animate-bounce">
+            <i class="fa-solid fa-play ml-1"></i>
+          </div>
+          <p class="text-white font-extrabold text-lg mt-4">3D Interactive Virtual Studio Tour</p>
+          <p class="text-xs text-gray-400">Previewing High-Definition Stream...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div id="lightboxModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+    <div class="max-w-5xl w-full relative">
+      <button onclick="closeModal('lightboxModal')" class="absolute -top-10 right-0 text-white hover:text-neon text-2xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <img id="lightboxImg" src="" class="w-full h-auto max-h-[85vh] object-contain rounded-2xl border border-white/10">
+    </div>
+  </div>
+
+  <!-- Toast Alert -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 hidden glass-panel px-6 py-4 rounded-2xl border border-neon text-white font-bold flex items-center gap-3 shadow-neon-glow">
+    <i class="fa-solid fa-circle-check text-neon text-xl"></i>
+    <span id="toastMsg">Pass reserved successfully!</span>
+  </div>
+
+  <script>
+    const scheduleData = {
+      mon: [
+        { time: '06:00 AM', name: 'Barbell Hypertrophy', coach: 'Marcus Vance', tag: 'Strength' },
+        { time: '09:00 AM', name: 'HIIT Fat Shredder', coach: 'Elena Rostova', tag: 'Cardio' },
+        { time: '05:30 PM', name: 'Tactical Turf Sleds', coach: 'Marcus Vance', tag: 'Functional' }
+      ],
+      tue: [
+        { time: '07:00 AM', name: 'Metabolic Sprint Circuit', coach: 'Elena Rostova', tag: 'Cardio' },
+        { time: '10:00 AM', name: 'Mobility & Joint Flow', coach: 'Sarah Jenkins', tag: 'Recovery' },
+        { time: '06:00 PM', name: 'Heavy Deadlift Clinic', coach: 'Marcus Vance', tag: 'Strength' }
+      ],
+      wed: [
+        { time: '06:00 AM', name: 'Iron Upper Body Blast', coach: 'Marcus Vance', tag: 'Strength' },
+        { time: '05:00 PM', name: 'Athletic Conditioning', coach: 'Elena Rostova', tag: 'Functional' }
+      ],
+      thu: [
+        { time: '08:00 AM', name: 'Fascial Recovery & Yoga', coach: 'Sarah Jenkins', tag: 'Recovery' },
+        { time: '06:30 PM', name: 'Powerlifting Squat Vault', coach: 'Marcus Vance', tag: 'Strength' }
+      ],
+      fri: [
+        { time: '06:00 AM', name: 'Full-Body HIIT Inferno', coach: 'Elena Rostova', tag: 'Cardio' },
+        { time: '05:30 PM', name: 'Leg Day Hypertrophy', coach: 'Marcus Vance', tag: 'Strength' }
+      ],
+      sat: [
+        { time: '09:00 AM', name: 'Weekend Warrior Turf Challenge', coach: 'Staff Coaches', tag: 'Group' }
+      ],
+      sun: [
+        { time: '10:00 AM', name: 'Recovery Decompression & Yoga', coach: 'Sarah Jenkins', tag: 'Recovery' }
+      ]
+    };
+
+    window.onload = function() {
+      renderSchedule('mon');
+      initBMICalculator();
+
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      const filterBtns = document.querySelectorAll('#programFilters button');
+      const programCards = document.querySelectorAll('.program-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => {
+            b.classList.remove('bg-neon', 'text-black');
+            b.classList.add('glass-panel', 'text-gray-300');
+          });
+          btn.classList.remove('glass-panel', 'text-gray-300');
+          btn.classList.add('bg-neon', 'text-black');
+
+          const filter = btn.getAttribute('data-filter');
+          programCards.forEach(card => {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      const dayBtns = document.querySelectorAll('#daySelector button');
+      dayBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          dayBtns.forEach(b => {
+            b.classList.remove('bg-neon', 'text-black');
+            b.classList.add('bg-white/5', 'text-gray-300');
+          });
+          btn.classList.remove('bg-white/5', 'text-gray-300');
+          btn.classList.add('bg-neon', 'text-black');
+
+          renderSchedule(btn.getAttribute('data-day'));
+        });
+      });
+
+      const billingToggle = document.getElementById('billingToggle');
+      const toggleDot = document.getElementById('toggleDot');
+      let isAnnual = false;
+
+      billingToggle.addEventListener('click', () => {
+        isAnnual = !isAnnual;
+        toggleDot.style.transform = isAnnual ? 'translateX(24px)' : 'translateX(0)';
+
+        document.querySelectorAll('.price-val').forEach(el => {
+          const val = isAnnual ? el.getAttribute('data-annual') : el.getAttribute('data-monthly');
+          el.innerText = val;
+        });
+      });
+
+      const transformSlider = document.getElementById('transformSlider');
+      const afterOverlay = document.getElementById('afterOverlay');
+
+      transformSlider.addEventListener('input', (e) => {
+        const val = e.target.value;
+        afterOverlay.style.width = `${val}%`;
+      });
+
+      document.getElementById('trialForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        closeModal('bookingModal');
+        showToast('Trial Pass Reserved! Confirmation Sent To Email.');
+      });
+    };
+
+    function renderSchedule(day) {
+      const container = document.getElementById('scheduleSlotsList');
+      container.innerHTML = '';
+
+      const slots = scheduleData[day] || [];
+      if (slots.length === 0) {
+        container.innerHTML = '<p class="text-gray-400 text-sm">No scheduled classes for this day.</p>';
+        return;
+      }
+
+      slots.forEach(slot => {
+        const div = document.createElement('div');
+        div.className = 'glass-panel p-4 rounded-2xl border border-white/5 hover:border-neon/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4 transition-all';
+        div.innerHTML = `
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-neon/10 text-neon font-black text-sm flex items-center justify-center border border-neon/20">
+              <i class="fa-solid fa-clock"></i>
+            </div>
+            <div>
+              <div class="text-white font-extrabold text-base">${slot.name}</div>
+              <div class="text-xs text-gray-400">Time: <span class="text-neon font-semibold">${slot.time}</span> • Coach: ${slot.coach}</div>
+            </div>
+          </div>
+          <button onclick="openModal('bookingModal')" class="px-5 py-2.5 bg-white/10 hover:bg-neon hover:text-black text-white text-xs font-bold rounded-xl transition-all border border-white/10">
+            Book Slot
+          </button>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function initBMICalculator() {
+      const hInput = document.getElementById('inputHeight');
+      const wInput = document.getElementById('inputWeight');
+      const aInput = document.getElementById('inputAge');
+
+      const hVal = document.getElementById('heightVal');
+      const wVal = document.getElementById('weightVal');
+      const aVal = document.getElementById('ageVal');
+
+      function update() {
+        const h = parseFloat(hInput.value);
+        const w = parseFloat(wInput.value);
+
+        hVal.innerText = h;
+        wVal.innerText = w;
+        aVal.innerText = aInput.value;
+
+        const bmi = (w / ((h / 100) * (h / 100))).toFixed(1);
+        document.getElementById('bmiScore').innerText = bmi;
+
+        const statusEl = document.getElementById('bmiStatus');
+        const recEl = document.getElementById('bmiRecommendation');
+
+        if (bmi < 18.5) {
+          statusEl.innerText = 'Underweight';
+          statusEl.className = 'text-xs font-bold text-blue-400 uppercase mt-1';
+          recEl.innerText = 'Focus on caloric surplus with progressive hypertrophy lifting to build muscular baseline.';
+        } else if (bmi >= 18.5 && bmi <= 24.9) {
+          statusEl.innerText = 'Normal Weight';
+          statusEl.className = 'text-xs font-bold text-neon uppercase mt-1';
+          recEl.innerText = 'Optimal metabolic baseline. Maintain athletic composition with 3x Strength and 2x HIIT weekly.';
+        } else if (bmi >= 25 && bmi <= 29.9) {
+          statusEl.innerText = 'Overweight';
+          statusEl.className = 'text-xs font-bold text-yellow-500 uppercase mt-1';
+          recEl.innerText = 'Recommended 45-minute HIIT metabolic circuits combined with compound resistance training.';
+        } else {
+          statusEl.innerText = 'Obese';
+          statusEl.className = 'text-xs font-bold text-neon-orange uppercase mt-1';
+          recEl.innerText = 'High priority fat-burn protocol with low-impact cardio, functional sleds, and high-protein nutrition guidance.';
+        }
+      }
+
+      hInput.addEventListener('input', update);
+      wInput.addEventListener('input', update);
+      aInput.addEventListener('input', update);
+
+      document.getElementById('btnMale').addEventListener('click', function() {
+        this.className = 'py-3 rounded-xl border border-neon bg-neon/10 text-neon font-bold flex items-center justify-center gap-2';
+        document.getElementById('btnFemale').className = 'py-3 rounded-xl border border-white/10 bg-white/5 text-gray-400 font-bold flex items-center justify-center gap-2 hover:border-white/30';
+      });
+
+      document.getElementById('btnFemale').addEventListener('click', function() {
+        this.className = 'py-3 rounded-xl border border-neon bg-neon/10 text-neon font-bold flex items-center justify-center gap-2';
+        document.getElementById('btnMale').className = 'py-3 rounded-xl border border-white/10 bg-white/5 text-gray-400 font-bold flex items-center justify-center gap-2 hover:border-white/30';
+      });
+    }
+
+    function openModal(id) {
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.add('hidden');
+    }
+
+    function openBookingModalWithPlan(planName) {
+      document.getElementById('selectedPlanInput').value = planName;
+      openModal('bookingModal');
+    }
+
+    function openProgramDetails(title, desc) {
+      showToast(`${title}: ${desc}`);
+    }
+
+    function openLightBox(src) {
+      document.getElementById('lightboxImg').src = src;
+      openModal('lightboxModal');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMsg').innerText = msg;
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 4000);
+    }
+  </script>
+</body>
+</html>
